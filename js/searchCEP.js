@@ -21,10 +21,6 @@ btnCEP.addEventListener('click', function () {
     //Transforma o JSON retornado em um objeto do JavaScript
     const address = JSON.parse(request.responseText);
 
-    //const objeto =  JSON.parse(address);
-
-    //console.log(objeto)
-    
     //Pega o objeto retorno e adiciona na DIV do HTML
     var street = document.querySelector('#street');
     street.innerHTML = address.logradouro;
@@ -43,24 +39,9 @@ btnCEP.addEventListener('click', function () {
    // Convertendo o valor do produto passado no HTML
     var valorProduto = parseInt(valorProduto)
 
-    //Condições SP
-/*
-    switch (address.uf == "SP"){
-      case address.localidade == "Campinas" : case address.localidade == "Sumaré" : case address.localidade == "Americana" :
-        mostrarValor1 = valorProduto * 0.3 + valorProduto
-          break
-      case address.localidade == "Valinhos" : case address.localidade == "Salto" : case address.localidade == "Sorocaba" :
-        mostrarValor1 = valorProduto * 0.3 + valorProduto
-          break
-      case ddress.localidade == "São Paulo" :
-        mostrarValor1 = valorProduto * 0.5 + valorProduto
-          break
-  }
-*/
     if (address.uf == "SP" && address.localidade == "São Paulo"){
       mostrarValor1 = valorProduto * 0.5 + valorProduto
-    }
-    else if (address.localidade == "Campinas" || address.localidade == "Sumaré" || address.localidade == "Americana" || address.localidade == "Valinhos"
+    }else if (address.localidade == "Campinas" || address.localidade == "Sumaré" || address.localidade == "Americana" || address.localidade == "Valinhos"
     || address.localidade == "Vinhedo" || address.localidade == "Salto" || address.localidade == "Sorocaba"){
       mostrarValor1 = valorProduto * 0.3 + valorProduto
     }    
@@ -97,10 +78,10 @@ btnCEP.addEventListener('click', function () {
       console.log("CEP inválido")
     }
 
- mostrarValor.innerHTML = mostrarValor1
+    var Total = mostrarValor1 + valorProduto;
+    document.getElementById("valorFrete").value = mostrarValor1;
+    document.getElementById("Total").value = Total;
 
-    //return address
-    
     }
 
   request.send();

@@ -15,20 +15,21 @@
     <center>
       <h1>Calcular Frete</h1>
 
-     
+
         <div>
-          <input type="text" id="cep" placeholder="Digite seu CEP">
+          <label class=entradas><input type="text" id="cep" placeholder="Digite seu CEP"></label>
         </div>
             <p></p>
         <div>
-          <input type="number" id="valorProduto" placeholder="Digite o Valor do Produto">
+          <label class=entradas><input type="number" id="valorProduto" placeholder="Digite o Valor do Produto"></label>
         </div>
             <p></p>
             <button>Submit</button>
             <p></p>
-         <!-- <input readonly type=”number” id="valorFrete" placeholder="Valor do Frete">-->
-        <div> <p id="mostrarValor"></p> </div>
-
+        <label class=valores>Frete: <input readonly type=”number” id="valorFrete"></label>
+        <br><p></p>
+        <label class=valores>Total: <input readonly type=”number” id="Total"></label>
+        <p></p>
         <div id="street"></div>
         <div id="district"></div>
         <div id="city"></div>
@@ -38,8 +39,8 @@
     </center>
 
     <script src="./js/searchCEP.js">
-    
+
     </script>
 
   </body>
-</html>
+</html> 
